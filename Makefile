@@ -1,6 +1,6 @@
 BUILD=build/
 
-C_SOURCES=$(wildcard kernel/*.c drivers/*.c)
+C_SOURCES=$(wildcard kernel/*.c drivers/*.c helpers/*.c)
 OBJ=${C_SOURCES:.c=.o}
 
 C_FLAGS=-fno-PIC -m32 -ffreestanding
@@ -26,7 +26,7 @@ boot.bin: boot/boot_sect.asm
 %kernel_entry.o: kernel/kernel_entry.asm
 	nasm $< $(NASMFLAGS) -o kernel/kernel_entry.o
 
-kernel.bin: kernel/kernel_entry.o $(OBJ)	
+kernel.bin: kernel/kernel_entry.o $(OBJ)
 	ld $(LD_FLAGS) -o ${BUILD}$@ $^
 
 %.o: %.c
@@ -36,5 +36,5 @@ dir:
 	mkdir -p $(BUILD)
 
 clean:
-	@rm -f kernel/*.o drivers/*.o
+	@rm -f kernel/*.o drivers/*.o helpers/*.o
 	@rm -r $(BUILD)
