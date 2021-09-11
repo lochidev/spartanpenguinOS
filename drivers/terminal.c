@@ -41,8 +41,8 @@ unsigned short get_cursor_pos() {
     result += port_byte_in(FB_DATA_PORT); /* 0x5001 */
     return result;
 }
-static inline const size_t calculate_index(size_t x, size_t y) {
-    return y * VGA_WIDTH + x;
+static inline const size_t calculate_index(size_t column, size_t row) {
+    return row * VGA_WIDTH + column;
 }
 size_t terminal_row;
 size_t terminal_column;
@@ -102,21 +102,24 @@ void terminal_put_char(char c)
             terminal_row = 0;
     }
     cursor_position = calculate_index(terminal_column, terminal_row);
+    set_cursor(cursor_position);
 }
 
 void terminal_write(const char* data, size_t size)
 {
     for (size_t i = 0; i < size; i++) {
         char c = data[i];
+        if(c == '\0')
+            return;
         if(c != '\n') {
             terminal_put_char(c);
         }
         else {
+
             terminal_column = 0;
             if (++terminal_row == VGA_HEIGHT)
                 terminal_row = 0;
         }
-        cursor_position = calculate_index(terminal_column, terminal_row);
     }
 }
 

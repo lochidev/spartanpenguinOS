@@ -14,9 +14,7 @@ void kernel_main(void)
 {
     /* Initialize terminal interface */
     terminal_initialize();
-    terminal_write_string("  Spartan Penguin OS!\n");
-    terminal_write_string("  Totally doing some stuff... please wait!\n");
-    char cursor_position = (char)get_cursor_pos();
-    terminal_write_string(" The cursor position is " + cursor_position);
+    terminal_write_string("  Spartan Penguin OS!\n\0");
+    terminal_write_string("  Totally doing some stuff... please wait!\n\0");
 }
 
