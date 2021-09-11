@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "../helpers/helpers.h"
+#include "../drivers/lowlevel/io.h"
 
 #define VGA_WIDTH 80
 #define VGA_HEIGHT 25
@@ -26,7 +27,8 @@ enum vga_color {
     VGA_COLOR_LIGHT_BROWN = 14,
     VGA_COLOR_WHITE = 15,
 };
-
+void set_cursor(unsigned short pos);
+unsigned short get_cursor_pos();
 static inline uint8_t get_vga_entry_color(enum vga_color fg, enum vga_color bg);
 static inline uint16_t get_vga_entry(unsigned char uc, uint8_t color);
 void terminal_initialize(void);

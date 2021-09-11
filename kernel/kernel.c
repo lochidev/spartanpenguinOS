@@ -4,17 +4,19 @@
 #endif */
 
 #if !defined(__i386__)
-#error "This tutorial needs to be compiled with a ix86-elf compiler"
+#error "This needs to be compiled with a ix86-elf compiler"
 #endif
 
-#include "../headers/drivers/screen.h"
+#include "../headers/drivers/terminal.h"
 #include "../headers/helpers/helpers.h"
 
-void main(void)
+void kernel_main(void)
 {
     /* Initialize terminal interface */
     terminal_initialize();
     terminal_write_string("  Spartan Penguin OS!\n");
     terminal_write_string("  Totally doing some stuff... please wait!\n");
+    char cursor_position = (char)get_cursor_pos();
+    terminal_write_string(" The cursor position is " + cursor_position);
 }
 

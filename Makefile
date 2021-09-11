@@ -1,6 +1,6 @@
 BUILD=build/
 
-C_SOURCES=$(wildcard kernel/*.c drivers/*.c helpers/*.c)
+C_SOURCES=$(wildcard kernel/*.c drivers/*.c drivers/*/*.c helpers/*.c)
 OBJ=${C_SOURCES:.c=.o}
 
 C_FLAGS=-fno-PIC -m32 -ffreestanding
@@ -36,5 +36,5 @@ dir:
 	mkdir -p $(BUILD)
 
 clean:
-	@rm -f kernel/*.o drivers/*.o helpers/*.o
+	@rm -f kernel/*.o drivers/*.o drivers/*/*.o helpers/*.o
 	@rm -r $(BUILD)
