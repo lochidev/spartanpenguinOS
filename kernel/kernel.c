@@ -7,8 +7,8 @@
 #error "This needs to be compiled with a ix86-elf compiler"
 #endif
 
-#include "../headers/drivers/terminal.h"
-#include "../headers/helpers/helpers.h"
+#include "../drivers/terminal.h"
+#include "../helpers/helpers.h"
 
 void kernel_main(void)
 {
