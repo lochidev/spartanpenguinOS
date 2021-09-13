@@ -1,4 +1,4 @@
-#include "../headers/drivers/terminal.h"
+#include "terminal.h"
 /*-------------------------------------------------------------------------------------*/
 /*                                                                                     */
 /*  This driver provides an API to interact with the frame buffer                      */

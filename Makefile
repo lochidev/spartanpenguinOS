@@ -8,6 +8,7 @@ LD_FLAGS=-no-PIE -m elf_i386 --oformat binary -Ttext 0x1000
 NASMFLAGS=-f elf32
 
 QEMU=qemu-system-i386 --curses
+
 all: dir kernel.bin boot.bin os-image os
 
 run: all

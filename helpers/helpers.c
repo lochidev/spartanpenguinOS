@@ -1,4 +1,4 @@
-#include "../headers/helpers/helpers.h"
+#include "helpers.h"
 
 size_t strlen(const char* str)
 {

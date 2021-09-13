@@ -1,4 +1,4 @@
-#include "../../headers/drivers/lowlevel/io.h"
+#include "io.h"
 
 unsigned char port_byte_in (unsigned short port) {
     // A handy C wrapper function that reads a byte from the specified port
